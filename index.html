@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Text speichern</title>
+  <script>
+    function speichern() {
+      const feld1 = document.getElementById("feld1").value;
+      const feld2 = document.getElementById("feld2").value;
+      localStorage.setItem("text1", feld1);
+      localStorage.setItem("text2", feld2);
+      alert("Text gespeichert!");
+    }
+
+    function laden() {
+      document.getElementById("feld1").value = localStorage.getItem("text1") || "";
+      document.getElementById("feld2").value = localStorage.getItem("text2") || "";
+    }
+
+    window.onload = laden;
+  </script>
+</head>
+<body>
+  <h1>Textfelder speichern</h1>
+  <label for="feld1">Feld 1:</label>
+  <input type="text" id="feld1"><br><br>
+
+  <label for="feld2">Feld 2:</label>
+  <input type="text" id="feld2"><br><br>
+
+  <button onclick="speichern()">Speichern</button>
+</body>
+</html>
